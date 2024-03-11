@@ -64,7 +64,7 @@ async function startBot() {
   }
 }
 
-// Handle events of the bot
+// Handle events of bot
 bot.on('scan', onScan);
 bot.on('login', onLogin);
 bot.on('logout', onLogout);
