@@ -4,7 +4,7 @@ import { Contact, Message, ScanStatus, WechatyBuilder, log } from 'wechaty';
 
 const BOT_NAME = 'DingDongBot';
 
-// Initializing the bot
+// Initializing bot
 const bot = WechatyBuilder.build({
   name: BOT_NAME,
 });
