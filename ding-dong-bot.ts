@@ -1,14 +1,13 @@
-import { generate } from 'qrcode-terminal';
+import 'dotenv/config.js';
+import qrcodeTerminal from 'qrcode-terminal';
 import { Contact, Message, ScanStatus, WechatyBuilder, log } from 'wechaty';
-
-require('dotenv').config();
 
 const BOT_NAME = 'DingDongBot';
 
 // function to handle QR code generation
 function onScan(qrcode: string, status: ScanStatus) {
   if (status === ScanStatus.Waiting || status === ScanStatus.Timeout) {
-    generate(qrcode, { small: true }); // show qrcode on console
+    qrcodeTerminal.generate(qrcode, { small: true }); // show qrcode on console
 
     const qrcodeImageUrl = [
       'https://wechaty.js.org/qrcode/',
