@@ -4,7 +4,12 @@ import { Contact, Message, ScanStatus, WechatyBuilder, log } from 'wechaty';
 
 const BOT_NAME = 'DingDongBot';
 
-// function to handle QR code generation
+// Initializing the bot
+const bot = WechatyBuilder.build({
+  name: BOT_NAME,
+});
+
+// Function to handle QR code generation
 function onScan(qrcode: string, status: ScanStatus) {
   if (status === ScanStatus.Waiting || status === ScanStatus.Timeout) {
     qrcodeTerminal.generate(qrcode, { small: true }); // show qrcode on console
@@ -26,18 +31,18 @@ function onScan(qrcode: string, status: ScanStatus) {
   }
 }
 
-// function to handle user login
+// Function to handle user login
 function onLogin(user: Contact) {
   log.info(BOT_NAME, '%s login', user);
 }
 
-// function to handle user logout
+// Function to handle user logout
 function onLogout(user: Contact) {
   log.info(BOT_NAME, '%s logout', user);
 }
 
-// function to parse message and replay to them
-// parse "ding" ---> replay "dong"
+// Function to parse message and replay to them
+// Parse "ding" ---> replay "dong"
 async function onMessage(message: Message) {
   try {
     log.info(BOT_NAME, message.toString());
@@ -49,7 +54,7 @@ async function onMessage(message: Message) {
   }
 }
 
-// start bot
+// Start bot
 async function startBot() {
   try {
     await bot.start();
@@ -59,12 +64,7 @@ async function startBot() {
   }
 }
 
-// initializing the bot
-const bot = WechatyBuilder.build({
-  name: BOT_NAME,
-});
-
-// handle events of the bot
+// Handle events of the bot
 bot.on('scan', onScan);
 bot.on('login', onLogin);
 bot.on('logout', onLogout);
