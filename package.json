@@ -2,7 +2,7 @@
   "name": "ding-dong-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "ding-dong-bot.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,5 +13,8 @@
     "qrcode-terminal": "^0.12.0",
     "wechaty": "^1.20.2",
     "wechaty-puppet-wechat": "^1.18.4"
+  },
+  "devDependencies": {
+    "@types/qrcode-terminal": "^0.12.2"
   }
 }
